@@ -3,7 +3,7 @@
 A full description of raw data can be found here:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+The measurements  come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
 
@@ -12,6 +12,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
+The final data set include all the average of each variable (measurements of mean and standard deviation) for each activity (activityname) and each subject (subjectid).
 
 1.                        subjectid
 2.                     activityname
@@ -95,3 +96,18 @@ These signals were used to estimate variables of the feature vector for each pat
 80.      fBodyBodyGyroJerkMag-std()
 81. fBodyBodyGyroJerkMag-meanFreq()
 
+#Explanation about the Transformation
+
+run_analysis.R cleans up the raw data in following steps:
+
+* Loading required package: we need join, ddply methods from package plyr and melt, dcast methods from reshape2 package;
+* Reading raw data by read.table method;
+* Using cbind method to merge the test and train data to the corresponding subject and activity id;
+* Using rbind method to merge the test and train data (both have the same column structures);
+* Renaming columns of the data set to more understandable names by direct assigning;
+* Using join method to lookup activity name by activity id;
+* Applying regular expression and grepl method to remove all the undesired columns;
+* Using melt method to restructure the data set;
+* Averaging all the value group by subjectid and activityname with ddply method;
+* Calling dcast method to unmelt the data set back to original structure;
+* Writing the result to a flat file (result.txt).
