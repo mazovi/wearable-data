@@ -12,7 +12,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-The final data set include all the average of each variable (measurements of mean and standard deviation) for each activity (activityname) and each subject (subjectid).
+The final data set include all the average of each variable (measurements of mean and standard deviation) for each activity (activityname) and each subject (subjectid). For all Acc measurements, the unit is 'g'. For all Gyro measurements, the unit is 'rad/s'.
 
 1.                        subjectid
 2.                     activityname
