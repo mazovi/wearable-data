@@ -20,7 +20,7 @@ run_analysis.R cleans up the raw data in following steps:
 * Reading raw data by read.table method;
 * Using cbind method to merge the test and train data to the corresponding subject and activity id;
 * Using rbind method to merge the test and train data (both have the same column structures);
-* Renaming columns of the data set to more understandable name by direct assigning;
+* Renaming columns of the data set to more understandable names by direct assigning;
 * Using join method to lookup activity name by activity id;
 * Applying regular expression and grepl method to remove all the undesired columns;
 * Using melt method to restruct the data set;
