@@ -23,7 +23,7 @@ run_analysis.R cleans up the raw data in following steps:
 * Renaming columns of the data set to more understandable names by direct assigning;
 * Using join method to lookup activity name by activity id;
 * Applying regular expression and grepl method to remove all the undesired columns;
-* Using melt method to restruct the data set;
+* Using melt method to restructure the data set;
 * Averaging all the value group by subjectid and activityname with ddply method;
 * Calling dcast method to unmelt the data set back to original structure;
 * Writing the result to a flat file (result.txt).
