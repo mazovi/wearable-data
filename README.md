@@ -15,3 +15,15 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 #Explanation about the Script
 
 run_analysis.R cleans up the raw data in following steps:
+
+* Loading required package: we need join, ddply methods from package plyr and melt, dcast methods from reshape2 package;
+* Reading raw data by read.table method;
+* Using cbind method to merge the test and train data to the corresponding subject and activity id;
+* Using rbind method to merge the test and train data (both have the same column structures);
+* Renaming columns of the data set to more understandable name by direct assigning;
+* Using join method to lookup activity name by activity id;
+* Applying regular expression and grepl method to remove all the undesired columns;
+* Using melt method to restruct the data set;
+* Averaging all the value group by subjectid and activityname with ddply method;
+* Calling dcast method to unmelt the data set back to original structure;
+* Writing the result to a flat file (result.txt).
